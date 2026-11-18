@@ -169,7 +169,7 @@
          <button class="btn btn-primary" id="newAppt">${HM.icon('plus', 14)} תור חדש</button>`)}
 
       <div class="grid g4 mb">
-        ${HM.kpi('תורים היום', HM.fmt.num(today.length), `${today.filter(a=>a.status==='pending').length} ממתינים לאישור`, 'flat', HM.spark([3,5,4,6,5,7,today.length], '#f97316'))}
+        ${HM.kpi('תורים היום', HM.fmt.num(today.length), `${today.filter(a=>a.status==='pending').length} ממתינים לאישור`, 'flat', HM.spark([3,5,4,6,5,7,today.length], '#c2ff3d'))}
         ${HM.kpi('ניצולת צוות', HM.fmt.pct(load), `${activeTeam().length} פעילים`, load > .75 ? 'up' : 'flat', HM.spark([.42,.51,.48,.6,.58,.66,load], '#1d4ed8'))}
         ${HM.kpi('הכנסה מתוכננת היום', HM.fmt.money(revenue), 'לפי תורים מאושרים', 'up', HM.spark([900,1400,1200,1800,1600,2100,revenue], '#15803d'))}
         ${HM.kpi('לקוחות חוזרים', HM.fmt.num(repeatCount), 'מכלל הלקוחות', 'flat', HM.spark([2,3,3,4,4,5,repeatCount], '#6d28d9'))}
@@ -422,7 +422,7 @@
   function publicMarkup(){
     const b = B();
     return `<div style="border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--surface)">
-      <div style="background:linear-gradient(150deg,var(--navy),#1b3a5e);color:#fff;padding:24px 22px">
+      <div style="background:linear-gradient(150deg,#151b26,#1e2a3b);color:#fff;padding:24px 22px">
         <div class="row" style="justify-content:space-between;align-items:flex-start;gap:12px">
           <div>
             <div class="row" style="gap:7px;margin-bottom:7px">

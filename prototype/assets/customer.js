@@ -151,8 +151,8 @@
     L.control.zoom({ position:'bottomleft' }).addTo(map);
 
     circle = L.circle([S.job.lat, S.job.lng], {
-      radius:S.radius*1000, color:'#f97316', weight:1.5, opacity:.75,
-      fillColor:'#f97316', fillOpacity:.07, dashArray:'5 6'
+      radius:S.radius*1000, color:'#c2ff3d', weight:1.5, opacity:.75,
+      fillColor:'#c2ff3d', fillOpacity:.07, dashArray:'5 6'
     }).addTo(map);
 
     jobMarker = L.marker([S.job.lat, S.job.lng], {

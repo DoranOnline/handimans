@@ -26,7 +26,7 @@ HM.SERVICES = [
 ];
 
 HM.TEAM = [
-  { id:'t1', name:'מיכאל ברק',   role:'בעלים · אינסטלציה', trade:'plumbing',   phone:'052-3301-889', active:true,  rating:4.9, jobs:640, capacity:6, color:'#f97316' },
+  { id:'t1', name:'מיכאל ברק',   role:'בעלים · אינסטלציה', trade:'plumbing',   phone:'052-3301-889', active:true,  rating:4.9, jobs:640, capacity:6, color:'#7c3aed' },
   { id:'t2', name:'איתי פרידמן', role:'טכנאי מיזוג',       trade:'hvac',       phone:'058-4410-993', active:true,  rating:4.8, jobs:310, capacity:5, color:'#06b6d4' },
   { id:'t3', name:'אלכס גורביץ', role:'חשמלאי מוסמך',      trade:'electrical', phone:'052-7712-660', active:true,  rating:4.7, jobs:430, capacity:5, color:'#f59e0b' },
   { id:'t4', name:'מוחמד חסן',   role:'תיקוני בית',         trade:'handyman',   phone:'053-4402-118', active:true,  rating:4.8, jobs:380, capacity:6, color:'#7c3aed' },

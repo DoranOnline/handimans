@@ -3,64 +3,101 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>HANDIMANS — דמו</title>
+<title>HANDIMANS — דמו חי</title>
 <meta name="description" content="דמו אינטראקטיבי לפלטפורמת בעלי מקצוע לפי אזור שירות: לקוח, בעל מקצוע, קבלן ומנהל.">
+<meta name="theme-color" content="#05060a">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
   :root{
-    --accent:#f97316; --accent-2:#c2410c; --accent-soft:#fff3e8;
-    --navy:#0b1b33; --ink:#0f172a; --ink-2:#334155; --muted:#64748b;
-    --line:#e6ebf2; --surface:#fff; --bg:#f6f8fb;
+    --bg:#05060a; --ink:#f2f5fa; --ink-2:#c6cedb; --muted:#8b95a8; --faint:#5d6779;
+    --line:rgba(255,255,255,.09);
+    --accent:#c2ff3d; --accent-ink:#0a1200; --cyan:#38bdf8; --violet:#a78bfa;
   }
   *{box-sizing:border-box}
+  html{color-scheme:dark}
   body{
-    margin:0; background:var(--bg); color:var(--ink);
+    margin:0;background:var(--bg);color:var(--ink);position:relative;overflow-x:hidden;
     font-family:Heebo,system-ui,-apple-system,"Segoe UI",sans-serif;
-    -webkit-font-smoothing:antialiased; line-height:1.5;
+    -webkit-font-smoothing:antialiased;line-height:1.5;
   }
-  .wrap{max-width:1040px;margin:0 auto;padding:40px 20px 56px}
-  header{display:flex;align-items:center;gap:10px;margin-bottom:36px}
+  body:before{
+    content:"";position:fixed;inset:-25%;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(38% 42% at 78% 6%,rgba(194,255,61,.18),transparent 62%),
+      radial-gradient(34% 40% at 10% 2%,rgba(56,189,248,.16),transparent 64%),
+      radial-gradient(46% 48% at 50% 112%,rgba(167,139,250,.18),transparent 66%);
+    filter:blur(30px);animation:aurora 24s ease-in-out infinite alternate;
+  }
+  body:after{
+    content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.55;
+    background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+    background-size:58px 58px;
+    mask-image:radial-gradient(75% 62% at 50% 0%,#000,transparent 88%);
+    -webkit-mask-image:radial-gradient(75% 62% at 50% 0%,#000,transparent 88%);
+  }
+  @keyframes aurora{
+    0%{transform:translate3d(0,0,0) scale(1)}
+    50%{transform:translate3d(-2%,2%,0) scale(1.07)}
+    100%{transform:translate3d(2%,-1%,0) scale(1.02)}
+  }
+  .wrap{position:relative;z-index:1;max-width:1060px;margin:0 auto;padding:44px 20px 60px}
+  header{display:flex;align-items:center;gap:11px;margin-bottom:52px}
   .logo{
-    width:38px;height:38px;border-radius:11px;background:var(--accent);
-    display:grid;place-items:center;color:#fff;font-weight:900;font-size:17px;
-    box-shadow:0 6px 16px rgba(249,115,22,.28);
+    width:40px;height:40px;border-radius:13px;
+    background:linear-gradient(140deg,var(--accent),#5eead4 55%,var(--cyan));
+    display:grid;place-items:center;color:var(--accent-ink);font-weight:900;font-size:18px;
+    box-shadow:0 0 0 1px rgba(194,255,61,.4),0 10px 28px rgba(194,255,61,.3);
   }
-  .brand{font-weight:900;font-size:16px;letter-spacing:-.3px}
+  .brand{font-weight:900;font-size:16px;letter-spacing:-.4px}
   .brand small{display:block;font-size:10.5px;font-weight:600;color:var(--muted);letter-spacing:0}
-  .tag{
-    margin-inline-start:auto;font-size:10.5px;font-weight:800;color:var(--accent-2);
-    background:var(--accent-soft);border:1px solid #ffd9bd;border-radius:99px;padding:5px 11px;
+  .live{
+    margin-inline-start:auto;display:inline-flex;align-items:center;gap:7px;
+    font-size:10.5px;font-weight:800;color:var(--accent);
+    background:rgba(194,255,61,.1);border:1px solid rgba(194,255,61,.3);
+    border-radius:99px;padding:6px 12px;
   }
-  h1{font-size:clamp(28px,4.4vw,44px);line-height:1.12;letter-spacing:-1.4px;margin:0 0 12px;font-weight:900}
-  h1 em{font-style:normal;color:var(--accent-2)}
-  .lede{font-size:15px;color:var(--ink-2);max-width:620px;margin:0 0 30px;line-height:1.65}
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(228px,1fr));gap:12px}
+  .live i{width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent);animation:pulse 2s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.8)}}
+  h1{font-size:clamp(32px,5.4vw,58px);line-height:1.06;letter-spacing:-2.4px;margin:0 0 16px;font-weight:900}
+  h1 em{font-style:normal;background:linear-gradient(100deg,var(--accent),#5eead4 60%,var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lede{font-size:15.5px;color:var(--ink-2);max-width:640px;margin:0 0 40px;line-height:1.7}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:14px}
   a.card{
-    display:block;text-decoration:none;color:inherit;background:var(--surface);
-    border:1px solid var(--line);border-radius:14px;padding:18px;
-    transition:transform .14s ease,box-shadow .14s ease,border-color .14s ease;
+    display:block;text-decoration:none;color:inherit;position:relative;overflow:hidden;
+    background:linear-gradient(170deg,rgba(255,255,255,.06),rgba(255,255,255,.015));
+    border:1px solid var(--line);border-radius:20px;padding:20px;
+    backdrop-filter:blur(16px);
+    transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;
   }
-  a.card:hover{transform:translateY(-2px);border-color:#ffd0ab;box-shadow:0 12px 26px rgba(15,23,42,.08)}
-  a.card:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  a.card:before{
+    content:"";position:absolute;inset:0 0 auto;height:1px;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.28),transparent);
+  }
+  a.card:hover{transform:translateY(-3px);border-color:rgba(194,255,61,.4);box-shadow:0 18px 44px rgba(0,0,0,.5),0 0 0 1px rgba(194,255,61,.18)}
+  a.card:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
   .ico{
-    width:34px;height:34px;border-radius:10px;display:grid;place-items:center;
-    background:var(--accent-soft);color:var(--accent-2);margin-bottom:11px;
+    width:38px;height:38px;border-radius:12px;display:grid;place-items:center;
+    background:rgba(194,255,61,.12);color:var(--accent);margin-bottom:13px;
+    border:1px solid rgba(194,255,61,.22);
   }
-  .card h2{font-size:14px;font-weight:800;margin:0 0 4px;letter-spacing:-.2px}
-  .card p{font-size:11.5px;color:var(--muted);margin:0;line-height:1.55;font-weight:500}
+  .card h2{font-size:15px;font-weight:800;margin:0 0 5px;letter-spacing:-.3px}
+  .card p{font-size:11.5px;color:var(--muted);margin:0;line-height:1.6;font-weight:500}
   .card .go{
-    display:inline-flex;align-items:center;gap:5px;margin-top:11px;
-    font-size:11px;font-weight:800;color:var(--accent-2);
+    display:inline-flex;align-items:center;gap:6px;margin-top:14px;
+    font-size:11px;font-weight:800;color:var(--accent);
   }
+  .card .go svg{transition:transform .18s ease}
+  a.card:hover .go svg{transform:translateX(-3px)}
   footer{
-    margin-top:34px;padding-top:18px;border-top:1px solid var(--line);
-    font-size:11px;color:var(--muted);display:flex;gap:14px;flex-wrap:wrap;font-weight:500;
+    margin-top:44px;padding-top:20px;border-top:1px solid var(--line);
+    font-size:11px;color:var(--muted);display:flex;gap:16px;flex-wrap:wrap;font-weight:500;
   }
-  footer b{color:var(--ink-2);font-weight:700}
-  @media (max-width:520px){ .wrap{padding:26px 16px 40px} header{margin-bottom:26px} }
+  footer b{color:var(--ink);font-weight:800}
+  @media (max-width:520px){ .wrap{padding:28px 16px 44px} header{margin-bottom:34px} h1{letter-spacing:-1.4px} }
+  @media (prefers-reduced-motion:reduce){ body:before{animation:none} *{transition-duration:.01ms!important} }
 </style>
 </head>
 <body>
@@ -68,50 +105,50 @@
   <header>
     <div class="logo">H</div>
     <div class="brand">HANDIMANS<small>בעלי מקצוע לפי אזור שירות</small></div>
-    <span class="tag">דמו · נתונים לדוגמה</span>
+    <span class="live"><i></i>דמו חי</span>
   </header>
 
   <h1>מי מגיע אליי?<br><em>לא רשימה — רדיוס.</em></h1>
   <p class="lede">
-    פלטפורמה שבה לקוח מסמן נקודה על המפה ורואה מי באמת מגיע אליו, בעל מקצוע מקבל פניות מדויקות באזור שלו,
-    ועסק עם צוות מנהל יומן, תורים וצוות במקום אחד. בחרו צד כדי להיכנס לדמו החי.
+    לקוח מסמן נקודה על המפה ורואה מי באמת מגיע אליו. בעל מקצוע מקבל פניות מדויקות באזור שלו.
+    עסק עם צוות מנהל יומן, תורים וצוות במקום אחד. בחרו צד ונכנסו לדמו החי.
   </p>
 
   <div class="grid">
     <a class="card" href="prototype/index.html#/customer/search">
-      <div class="ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></div>
+      <div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></div>
       <h2>לקוח</h2>
       <p>מפה עם רדיוס, סינון לפי מקצוע, בקשת שירות, השוואת הצעות, צ׳אט ודירוג.</p>
-      <span class="go">כניסה ←</span>
+      <span class="go">כניסה <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg></span>
     </a>
 
     <a class="card" href="prototype/index.html#/pro/dashboard">
-      <div class="ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14.7 6.3a4 4 0 01-5.4 5.4L4 17v3h3l5.3-5.3a4 4 0 015.4-5.4l-2.5 2.5-1.4-1.4 2.5-2.5z"/></svg></div>
+      <div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14.7 6.3a4 4 0 01-5.4 5.4L4 17v3h3l5.3-5.3a4 4 0 015.4-5.4l-2.5 2.5-1.4-1.4 2.5-2.5z"/></svg></div>
       <h2>בעל מקצוע</h2>
       <p>פניות באזור, שליחת הצעה ב-100 ₪ לפנייה, ארנק בשקלים, יומן עבודות ודירוגים.</p>
-      <span class="go">כניסה ←</span>
+      <span class="go">כניסה <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg></span>
     </a>
 
     <a class="card" href="prototype/index.html#/contractor/dashboard">
-      <div class="ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M9 21v-4h6v4M8 7h.01M16 7h.01M8 11h.01M16 11h.01"/></svg></div>
+      <div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M9 21v-4h6v4M8 7h.01M16 7h.01M8 11h.01M16 11h.01"/></svg></div>
       <h2>קבלן / עסק</h2>
       <p>יומן שבועי, תור המתנה, צוות ועומס, עמוד ציבורי עם המרה, פניות באזור.</p>
-      <span class="go">כניסה ←</span>
+      <span class="go">כניסה <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg></span>
     </a>
 
     <a class="card" href="prototype/index.html#/admin/overview">
-      <div class="ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div>
+      <div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div>
       <h2>מנהל</h2>
       <p>סקירה תפעולית, אימות מסמכים, מחלוקות, משתמשים, תמחור פניות ויומן פעילות.</p>
-      <span class="go">כניסה ←</span>
+      <span class="go">כניסה <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg></span>
     </a>
   </div>
 
   <footer>
     <span><b>25 מסכים</b> בארבעה צדדים</span>
     <span><b>100 ₪</b> לפנייה · ללא עמלה על עבודה</span>
-    <span>אפשר לעבור בין הצדדים מהכפתור למעלה</span>
-    <span>כל הנתונים בדויים ומתאפסים ברענון</span>
+    <span>מעבר בין הצדדים מהכפתור למעלה</span>
+    <span>נתונים בדויים · מתאפסים ברענון</span>
   </footer>
 </div>
 </body>

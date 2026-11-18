@@ -81,7 +81,7 @@
          <button class="btn btn-primary" data-nav="leads">${HM.icon('target', 14)} לפניות</button>`)}
 
       <div class="grid g4 mb">
-        ${HM.kpi('פניות החודש', HM.fmt.num(42), '+18% מול חודש קודם', 'up', HM.spark(HM.SERIES.requests, '#f97316'))}
+        ${HM.kpi('פניות החודש', HM.fmt.num(42), '+18% מול חודש קודם', 'up', HM.spark(HM.SERIES.requests, '#c2ff3d'))}
         ${HM.kpi('שיעור המרה', HM.fmt.pct(conv || 0.28), '+4 נק׳', 'up', HM.spark([.18,.21,.19,.24,.26,.25,.28], '#1d4ed8'))}
         ${HM.kpi('הכנסה משוערת', HM.fmt.money(p.earnings), '+12%', 'up', HM.spark(HM.SERIES.gmv, '#15803d'))}
         ${HM.kpi('דירוג', p.rating.toFixed(1) + ' <small>/ 5</small>', p.reviews + ' ביקורות', 'flat', HM.spark([4.6,4.7,4.7,4.8,4.8,4.9,4.9], '#f59e0b'))}
@@ -136,7 +136,7 @@
       <div class="grid g3">
         <div class="panel">
           <div class="panel-head"><div class="panel-title">${HM.icon('trending', 15)} פניות ב-12 חודשים</div></div>
-          <div class="panel-body">${HM.bars(HM.SERIES.requests, ['ינו','פבר','מרץ','אפר','מאי','יונ','יול','אוג','ספט','אוק','נוב','דצמ'], '#f97316', 130)}</div>
+          <div class="panel-body">${HM.bars(HM.SERIES.requests, ['ינו','פבר','מרץ','אפר','מאי','יונ','יול','אוג','ספט','אוק','נוב','דצמ'], '#c2ff3d', 130)}</div>
         </div>
         <div class="panel">
           <div class="panel-head"><div class="panel-title">${HM.icon('percent', 15)} משפך המרה</div></div>
@@ -504,7 +504,7 @@
     map = L.map('proMap', { zoomControl:false, attributionControl:false }).setView([p.lat, p.lng], 12);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom:19 }).addTo(map);
     map._circle = L.circle([p.lat, p.lng], {
-      radius:10000, color:'#f97316', weight:1.5, fillColor:'#f97316', fillOpacity:.08, dashArray:'5 6'
+      radius:10000, color:'#c2ff3d', weight:1.5, fillColor:'#c2ff3d', fillOpacity:.08, dashArray:'5 6'
     }).addTo(map);
     L.marker([p.lat, p.lng], {
       icon:L.divIcon({ className:'', html:'<div class="job-pin"></div>', iconSize:[20,20], iconAnchor:[10,10] })
@@ -524,7 +524,7 @@
     const content = `
       ${head('יתרה וחיובים', 'פנייה = ' + HM.fmt.money(HM.db.settings.leadPrice) + ' · אין עמלה על העבודות שתסגרו', '')}
       <div class="grid g-1-2 mb">
-        <div class="panel" style="background:linear-gradient(150deg,var(--navy),#1b3a5e);border:0;color:#fff">
+        <div class="panel" style="background:linear-gradient(150deg,#151b26,#1e2a3b);border:0;color:#fff">
           <div class="panel-body">
             <div style="font-size:11px;font-weight:700;color:#b9c7d8">יתרה זמינה</div>
             <div style="font-size:44px;font-weight:900;letter-spacing:-2px;line-height:1.1;margin-top:4px">${HM.fmt.money(p.balance)}</div>
@@ -539,7 +539,7 @@
           <div class="panel-body grid g3" style="gap:9px">
             ${packs.map(pk => `
               <div style="border:1.5px solid ${pk.hot?'var(--accent)':'var(--line)'};border-radius:12px;padding:12px;text-align:center;position:relative;background:${pk.hot?'var(--accent-soft)':'var(--surface)'}">
-                ${pk.hot ? `<span style="position:absolute;top:-8px;right:50%;transform:translateX(50%);background:var(--accent);color:#fff;font-size:9px;font-weight:800;padding:2px 7px;border-radius:5px">${pk.label}</span>` : ''}
+                ${pk.hot ? `<span style="position:absolute;top:-8px;right:50%;transform:translateX(50%);background:var(--accent);color:var(--accent-ink);font-size:9px;font-weight:800;padding:2px 7px;border-radius:5px">${pk.label}</span>` : ''}
                 <div style="font-size:22px;font-weight:900;letter-spacing:-.8px">${HM.fmt.money(pk.amount)}</div>
                 <div style="font-size:10px;color:var(--muted);font-weight:600">${pk.leads} פניות${pk.bonus?` +${pk.bonus} בונוס`:''}</div>
                 <div style="font-size:13px;font-weight:800;margin:7px 0 9px">${HM.fmt.money(pk.amount)}</div>

@@ -220,7 +220,7 @@ HM.esc = function(s){
 
 HM.avatar = function(name, color, size){
   const cls = size || 'md';
-  return `<div class="avatar ${cls}" style="background:${color || '#f97316'}">${HM.esc(HM.fmt.initials(name))}</div>`;
+  return `<div class="avatar ${cls}" style="background:${color || '#475569'}">${HM.esc(HM.fmt.initials(name))}</div>`;
 };
 
 HM.badge = function(text, tone, dot){

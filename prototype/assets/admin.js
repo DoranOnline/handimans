@@ -63,7 +63,7 @@
 
       <div class="grid g5 mb">
         ${HM.kpi('GMV החודש', HM.fmt.money(gmv), '+14%', 'up', HM.spark(HM.SERIES.gmv, '#15803d'))}
-        ${HM.kpi('בקשות פתוחות', HM.fmt.num(reqs.filter(r=>r.status==='open').length), '+6 היום', 'up', HM.spark(HM.SERIES.requests, '#f97316'))}
+        ${HM.kpi('בקשות פתוחות', HM.fmt.num(reqs.filter(r=>r.status==='open').length), '+6 היום', 'up', HM.spark(HM.SERIES.requests, '#c2ff3d'))}
         ${HM.kpi('שיעור מילוי', HM.fmt.pct(fill), 'יעד 80%', fill >= .8 ? 'up' : 'down', HM.spark(HM.SERIES.fill, '#1d4ed8'))}
         ${HM.kpi('בעלי מקצוע פעילים', HM.fmt.num(pros.length), '+3 השבוע', 'up', HM.spark(HM.SERIES.pros, '#6d28d9'))}
         ${HM.kpi('מחלוקות פתוחות', HM.fmt.num(openDisputes().length), openDisputes().length ? 'דורש טיפול' : 'הכול נקי', openDisputes().length ? 'down' : 'up', '')}
@@ -72,23 +72,23 @@
       <div class="grid g-2-1 mb">
         <div class="panel">
           <div class="panel-head"><div class="panel-title">${HM.icon('trending', 15)} בקשות ו-GMV ב-12 חודשים</div>
-            <div class="legend"><span><i style="background:#f97316"></i>בקשות</span><span><i style="background:#15803d"></i>GMV (אלף ₪)</span></div>
+            <div class="legend"><span><i style="background:#c2ff3d"></i>בקשות</span><span><i style="background:#15803d"></i>GMV (אלף ₪)</span></div>
           </div>
           <div class="panel-body">
-            ${HM.bars(HM.SERIES.requests, ['ינו','פבר','מרץ','אפר','מאי','יונ','יול','אוג','ספט','אוק','נוב','דצמ'], '#f97316', 150)}
+            ${HM.bars(HM.SERIES.requests, ['ינו','פבר','מרץ','אפר','מאי','יונ','יול','אוג','ספט','אוק','נוב','דצמ'], '#c2ff3d', 150)}
           </div>
         </div>
         <div class="panel">
           <div class="panel-head"><div class="panel-title">${HM.icon('percent', 15)} התפלגות סטטוסים</div></div>
           <div class="panel-body" style="display:flex;align-items:center;gap:16px">
             ${HM.donut([
-              { value:reqs.filter(r=>r.status==='open').length, color:'#f97316' },
+              { value:reqs.filter(r=>r.status==='open').length, color:'#c2ff3d' },
               { value:reqs.filter(r=>r.status==='scheduled').length, color:'#6d28d9' },
               { value:reqs.filter(r=>r.status==='completed').length, color:'#15803d' },
               { value:reqs.filter(r=>r.status==='matched').length, color:'#1d4ed8' }
             ], 116, 15)}
             <div style="flex:1">
-              ${[['פתוחות','#f97316',reqs.filter(r=>r.status==='open').length],['מתוזמנות','#6d28d9',reqs.filter(r=>r.status==='scheduled').length],['הושלמו','#15803d',reqs.filter(r=>r.status==='completed').length],['נמצאה התאמה','#1d4ed8',reqs.filter(r=>r.status==='matched').length]].map(([l,c,v]) => `
+              ${[['פתוחות','#c2ff3d',reqs.filter(r=>r.status==='open').length],['מתוזמנות','#6d28d9',reqs.filter(r=>r.status==='scheduled').length],['הושלמו','#15803d',reqs.filter(r=>r.status==='completed').length],['נמצאה התאמה','#1d4ed8',reqs.filter(r=>r.status==='matched').length]].map(([l,c,v]) => `
                 <div class="row" style="justify-content:space-between;font-size:11.5px;margin-bottom:7px">
                   <span style="color:var(--muted);font-weight:600"><i style="display:inline-block;width:8px;height:8px;border-radius:2px;background:${c};margin-inline-end:6px"></i>${l}</span>
                   <b>${v}</b>
