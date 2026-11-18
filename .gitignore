@@ -6,3 +6,9 @@ Thumbs.db
 .env.*
 !.env.example
 .vercel/
+
+# Local Netlify folder
+.netlify
+
+# Generated deploy bundle
+dist/

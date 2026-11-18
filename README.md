@@ -3,6 +3,9 @@
 מרקטפלייס לבעלי מקצוע בבית, בנוי סביב **אזור שירות ורדיוס** — לא סביב רשימה.
 ארבעה צדדים מלאים: לקוח, בעל מקצוע, קבלן (עסק עם צוות), מנהל.
 
+**דמו חי:** https://handimans-demo.netlify.app
+**קוד:** https://github.com/DoranOnline/handimans
+
 ## מה יש כאן
 
 | קובץ | מה זה |
@@ -15,6 +18,10 @@
 
 ## הפרוטוטייפ
 
+### אונליין (להראות ללקוח)
+https://handimans-demo.netlify.app — עמוד כניסה עם ארבעה כרטיסים, כל אחד נכנס לצד שלו.
+
+### מקומית
 ```bash
 cd prototype
 python -m http.server 5173
@@ -50,6 +57,19 @@ python -m http.server 5173
 - משתמשים, השעיה, קטגוריות ותמחור, התאמת יתרות, יומן פעילות, הגדרות.
 
 הדאטה בדויה, לצורכי הדגמה בלבד. כל הפעולות משנות state בזיכרון ומתאפסות ברענון.
+
+## פריסה
+
+הדמו סטטי לחלוטין — אין build ואין שרת. כל שינוי בקוד מתפרסם כך:
+
+```bash
+rm -rf dist && mkdir -p dist
+cp index.html dist/ && cp -r prototype dist/prototype && printf '' > dist/.nojekyll
+netlify deploy --prod --dir=dist
+```
+
+האתר יושב על Netlify (חינם) בפרויקט `handimans-demo`. GitHub Pages כבוי בכוונה:
+החשבון מקושר לדומיין `burnbright.click` ולכן `github.io` מפנה לשם ומחזיר 404.
 
 ## הצעד הבא
 
