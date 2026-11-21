@@ -12,3 +12,6 @@ Thumbs.db
 
 # Generated deploy bundle
 dist/
+
+# Local app database
+app/data/
